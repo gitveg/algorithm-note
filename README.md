@@ -1,0 +1,2 @@
+# algorithm-note
+some notes
