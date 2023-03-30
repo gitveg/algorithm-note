@@ -1,0 +1,77 @@
+##包含于头文件<vector>
+vector是表示可变大小数组的序列容器。
+可采用下标访问。
+空间开销更大，访问元素高效。
+只提供尾插尾删。
+vector排序使用sort，标准为:sort(v1.begin(), v1.end()), 降序为sort(v1.begin(), v1.end(), greater<int>())
+begin()函数
+
+原型： iterator begin();
+            const_iterator begin();
+功能：返回一个当前vector容器中起始元素的迭代器。
+
+end()函数
+
+原型：iterator end();
+           const_iterator end();
+功能：返回一个当前vector容器中末尾元素的迭代器。
+
+front()函数
+
+原型：reference front();
+           const_reference front();
+功能：返回当前vector容器中起始元素的引用。
+
+back()函数
+
+原型：reference back();
+           const_reference back();
+功能：返回当前vector容器中末尾元素的引用。
+
+说明： 可用 * vector.begin() 或 * vector.end() 得到 vector 首尾的值。
+            也可用 vector.front() 、vector.back() 来得到 vector 首尾的值。
+
+
+insert() 函数
+insert() 函数有以下三种用法：
+
+iterator insert( iterator loc, const TYPE &val );
+在指定位置loc前插入值为val的元素,返回指向这个元素的迭代器。
+
+void insert( iterator loc, size_type num, const TYPE &val );
+在指定位置loc前插入num个值为val的元素。
+
+void insert( iterator loc, input_iterator start, input_iterator end );
+在指定位置loc前插入区间[start, end)的所有元素。
+
+//创建一个vector,置入字母表的前十个字符 
+vector <char> alphaVector;
+for (int i = 0; i < 10; i++)
+	alphaVector.push_back(i + 65);
+
+//在vector开头插入C
+vector <char>::iterator theIterator = alphaVector.begin();
+alphaVector.insert(theIterator,'C');
+
+//显示vector的内容 
+for (theIterator = alphaVector.begin(); theIterator != alphaVector.end(); theIterator++)
+	cout << *theIterator;
+//这段代码将显示:CABCDEFGHIJ
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+push_back()函数
+       vector是用数组实现的，每次执行push_back操作，相当于底层的数组实现要重新分配大小（即先free掉原来的存储，后重新malloc）。
+
+pop_back()函数
+       删除 vector 中最后一个元素（会改变 vector.size() 的大小）。
