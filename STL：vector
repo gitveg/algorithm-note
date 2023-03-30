@@ -70,6 +70,7 @@ for (theIterator = alphaVector.begin(); theIterator != alphaVector.end(); theIte
 11
 12
 13
+
 push_back()函数
        vector是用数组实现的，每次执行push_back操作，相当于底层的数组实现要重新分配大小（即先free掉原来的存储，后重新malloc）。
 
