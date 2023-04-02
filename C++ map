@@ -1,0 +1,74 @@
+参考：https://blog.csdn.net/m0_56494923/article/details/123239292
+
+C++中的map翻译为映射
+#map可以将任何基本类型（包括STL容器）映射到任何基本类型（包括STL容器）#
+
+1、map的定义
+单独定义一个map:
+
+map<typename1, typename2> mp;
+其中，typename1是键的类型，typename2是值的类型。
+
+注：如果是字符串到整型的映射，必须使用string而不能用char数组！
+map<string, int> mp;
+
+这是因为char数组作为数组，是不能被作为键值的。所以如果想用字符串做映射，必须用string。
+
+再举个例子：map的键和值也可以是STL容器，例如以下代码将一个set容器映射到一个字符串：
+
+map<set<int>, string> mp;
+map容器内元素的访问
+一般有两种访问方式：通过下标访问或通过迭代器访问：
+
+1、通过下标访问：
+
+和普通数组一样，例如一个定义为map<char, int> mp的map来说，可以直接使用mp['c']的方式来访问它对应的int整数。可以直接使用mp['c'] = 20这样的方式来赋值：
+
+map<char, int> mp; 
+mp['c'] = 20;
+cout << mp['c'];	//答案输出20
+但是要注意的是，map中的键是唯一的，例如以下代码：
+
+map<char, int> mp; 
+mp['c'] = 20;
+mp['c'] = 30;	//30覆盖了20 
+mp['c'] = 666; 	//666覆盖了30 
+cout << mp['c'];	//答案输出666 
+2、通过迭代器访问：
+
+map迭代器的定义和其他STL容器迭代器定义的方式相同：
+
+map<typename1, typename2>::iterator it;
+这样就得到了迭代器 it 。
+
+map可以使用it->first来访问键，it->second来访问值：
+
+还有一点要补充，就是map会以键从小到大的顺序自动排序
+因此有时候用unordered_map
+
+map常用函数实例解析：
+1、find()：
+find(key)返回键为key映射的迭代器，时间复杂度为O(logN)，N为map中映射的个数：
+2、erase():
+erase()有两种用法：1、删除单个元素。2、删除一个区间内所有的元素。
+
+① 删除单个元素：
+
+mp.erase(it)，it为需要删除的元素的迭代器。时间复杂度为O(1)：
+
+mp.erase(key)，key为要删除的映射的键。时间复杂度O(logN)，N为map内元素的个数：
+
+② 删除一个区间内所有的元素：
+
+mp.erase(first, last)，
+其中，first为需要删除的区间的起始迭代器，last为需要删除的区间末尾迭代器的下一个地址，即为删除左闭右开的区间[first, last)。时间复杂度为O(last - first)：
+
+3、size()：
+size()用来获得map中映射的对数，复杂度为O(1)。
+
+4、clear():
+clear()用来清空map中的所有元素，复杂度为O(N)，N为map中元素个数：
+
+4、拓展
+        map的键和值是唯一的，如果需要一个键对应多个值，就只能用multimap。
+        另外，C++11标准新增了unordered_map，以散列代替map内部的红黑树实现，使其可以用来处理只映射而不按key排序的需求，速度比map要快得多。
