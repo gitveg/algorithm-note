@@ -1,0 +1,4 @@
+参考https://blog.csdn.net/m0_66304425/article/details/123697317
+
+要加数学头文件#include<math.h>
+ceil返回大于等于表达式的最小整数，例如：float a=4.5 那么int ceil（a）=5
