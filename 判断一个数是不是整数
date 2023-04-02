@@ -1,0 +1,3 @@
+参考：https://blog.csdn.net/sweetorange_/article/details/103345441
+
+if(a-(int)a==0)则是整数
