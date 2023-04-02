@@ -1,0 +1,17 @@
+参考：https://blog.csdn.net/m0_65601072/article/details/123967796
+
+stcpy函数
+函数原型： char*strcpy（char*dest，const char*src）   //将src复制到dest字符数组中
+头  文  件：#include <string.h>
+返  回  值：char* 类型，返回的是第一个参数的值，即目的数组的首地址；
+
+与strncpy的区别
+1、strcpy() 函数用来复制字符串；strncpy()用来复制字符串的前n个字符，所以要多传一个参数n
+
+     大家可以对比一下两个函数原型：
+
+    char *strcpy(char *dest, const char *src);
+
+    char * strncpy(char *dest, const char *src, size_t n);
+
+2、不像strcpy()，strncpy()不会向dest追加结束标记'\0'
