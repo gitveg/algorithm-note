@@ -1,6 +1,6 @@
-参考文章：https://www.cnblogs.com/akioi/p/12218830.html
+## 参考文章：https://www.cnblogs.com/akioi/p/12218830.html
 
-主要分为四个源程序：
+**主要分为四个源程序：**
 bs.cpp  用暴搜，得到的正确结果
 std.cpp  用自己采用的但是存在问题的代码得出的结果
 data.cpp  使用rand随机生成的数据
