@@ -1,0 +1,30 @@
+## C++ string 类详解 
+[参考文章1](http://c.biancheng.net/view/2236.html) 
+[参考文章3](https://blog.csdn.net/zhaitianbao/article/details/118993685) 
+[参考文章2](https://blog.csdn.net/liitdar/article/details/80498634)
+
+###  子函数调用
+1. str.length()和str.size() 返回字符串的长度,即字符串字符的个数
+
+2. str.empty() 若str为空，返回1
+
+3. str.find(char * str_obj, pos) 在str里寻找子字符串str_obj,从pos开始寻找，如果不指明pos，默认从0开始查找，若找到返回str_obj的首字符所在的位置。若没找到，会返回 string::npos，它是 string 类内部定义的一个静态常成员，用来表示 size_t 类型所能存储的最大值
+
+4. str.insert(size_t pos, const string& str)在字符串中指定的位置插入另一个字符串。如 s2.insert(5, "bbb");
+
+5. str.erase(pos, len)pos 表示要删除的子字符串的起始下标，len 表示要删除子字符串的长度。如果不指明 len 的话，那么直接删除从 pos 到字符串结束处的所有字符
+
+6. str.substr(pos, len)用于从 str 字符串中提取子字符串.pos 为要提取的子字符串的起始下标，len 为要提取的子字符串的长度。
+
+7. str.end() 返回字符串结束位置, str.begin()返回字符串开始位置
+
+8. str.back()返回字符串str的最后一个字符的引用
+
+### 输入输出 
+可以直接用 cin >>和 cout << 进行输入输出
+也可以用 str += c 来拼接式地输入
+string类和char数组一样，遇到空格结束输入
+getline(cin,s); // 获取一行字符串给s，遇到空格不会结束
+
+### 调用 
+string类可以像数组一样用下标调用。如str[0],str[i]
